@@ -5,14 +5,15 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/login">Login</router-link> |
       <router-link to="/logout">Logout</router-link> |
-      <router-link to="/signup">Sign Up</router-link>
+      <router-link to="/signup">Sign Up</router-link> |
+      <router-link to="/my_restaurants">My Restaurants</router-link>
     </div>
     <router-view/>
   </div>
 </template>
 
 <style>
-#app {
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -31,5 +32,5 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
-}
+} */
 </style>

@@ -10,17 +10,22 @@
       <p>{{ cuisine }}</p>
     </div>
     <p>{{ restaurant.restaurant_website }}</p>
-    <div>
-      <p><button v-on:click="addRestaurant()">Add to MyRestaurants</button></p>
-      <label for="statuses">Please select a status: </label>
-      <select name="statuses" id="statuses">
-        <option value="been">I've been here!</option>
-        <option value="go">I'd like to go here!</option>
-        <option value="fav">This is my #1 favorite place!</option>
-      </select>
-      <br><br>
-      <input type="submit" value="Submit">
-    </div>
+
+    <b>Add to MyRestaurants?</b>
+    <br>
+  
+    <p>Please select a status:</p>
+    <select v-model="selected">
+      <option value="been">I've been here!</option>
+      <option value="go">I'd like to go here!</option>
+      <option value="fav">This is my #1 favorite place!</option>
+    </select>
+    <br><br>
+
+      <button type="submit" class="btn btn-success" @click="addRestaurant">Add</button>
+
+    </modal>
+
   </div>
 </template>
 
@@ -35,6 +40,7 @@
         message: "This is restaurants show",
         restaurant: {},
         cuisine: [],
+        selected: '',
       };
     },
     created: function () {
@@ -52,20 +58,22 @@
         axios.post("/my_restaurants", {
           user_id: localStorage.user_id,
           restaurant_id: this.restaurant.restaurant_id,
-          // restaurant_status: this.restaurant.,
+          restaurant_status: this.selected,
           restaurant_name: this.restaurant.restaurant_name,
           restaurant_phone: this.restaurant.restaurant_phone,
           restaurant_website: this.restaurant.restaurant_website,
           hours: this.restaurant.hours,
           price_range: this.restaurant.price_range,
-          // cuisines: params[:cuisines],
+          // cuisines: this.cuisines,
           address: this.restaurant.address.formatted
         })
         .then((response) => {
           console.log("adding to list...", response);
           this.$router.push("/my_restaurants");
+          alert("You have successfully saved this restaurant")
         })
         .catch((error) => {
+          console.log(selected);
           console.log("my_restaurants add error", error.response);
           this.errors = error.response.data.errors;
         });

@@ -5,6 +5,9 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Signup from '../views/Signup.vue'
 import RestaurantsShow from '../views/RestaurantsShow.vue'
+import MyRestaurantsIndex from '../views/MyRestaurantsIndex.vue'
+import MyRestaurantsShow from '../views/MyRestaurantsShow.vue'
+import MyRestaurantsEdit from '../views/MyRestaurantsEdit.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +36,21 @@ const routes = [
     path: '/restaurant/:restaurant_id',
     name: 'restaurants-show',
     component: RestaurantsShow
+  },
+  {
+    path: '/my_restaurants',
+    name: 'myrestaurants-index',
+    component: MyRestaurantsIndex
+  },
+  {
+    path: '/my_restaurants/:id',
+    name: 'myrestaurants-show',
+    component: MyRestaurantsShow
+  },
+  {
+    path: '/my_restaurants/:id/edit',
+    name: 'myrestaurants-edit',
+    component: MyRestaurantsEdit
   },
   {
     path: '/about',
