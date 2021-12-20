@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Signup from '../views/Signup.vue'
+import RestaurantsIndex from '../views/RestaurantsIndex.vue'
 import RestaurantsShow from '../views/RestaurantsShow.vue'
 import MyRestaurantsIndex from '../views/MyRestaurantsIndex.vue'
 import MyRestaurantsShow from '../views/MyRestaurantsShow.vue'
@@ -31,6 +32,11 @@ const routes = [
     path: '/logout',
     name: 'logout',
     component: Logout
+  },
+  {
+    path: '/restaurants',
+    name: 'restaurants-index',
+    component: RestaurantsIndex
   },
   {
     path: '/restaurant/:restaurant_id',

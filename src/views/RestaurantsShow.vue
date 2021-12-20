@@ -1,6 +1,11 @@
 <template>
   <div class="restaurants-show">
-    <h1>{{ message }}</h1>
+    <!-- <h1>{{ message }}</h1> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <h2>{{ restaurant.restaurant_name }}</h2>
     <p>{{ restaurant.address.formatted }}</p>
     <p>{{ restaurant.restaurant_phone }}</p>
@@ -11,8 +16,28 @@
     </div>
     <p>{{ restaurant.restaurant_website }}</p>
 
+    <!-- <div v-for="menu in restaurant.menus">
+      <p>{{ menu.menu_name }}</p>
+      <div v-for="menu_section in menu.menu_sections">
+        <p>{{ menu_section.section_name }}</p>
+        <div v-for="section_name in menu_section.section_names">
+          <p>{{ section_name }}</p>
+        </div>
+
+        <div v-for="menu_item in menu_section.menu_items">
+          <p>{{ menu_item.name }}</p>
+          <p>{{ menu_item.description }}</p>
+            <div v-for="pricing in menu_item.pricing">
+              <p>{{ pricing.priceString }}</p>
+            </div>
+        </div>
+
+      </div>
+    </div> -->
+
     <b>Add to MyRestaurants?</b>
     <br>
+
   
     <p>Please select a status:</p>
     <select v-model="selected">
@@ -41,6 +66,7 @@
         restaurant: {},
         cuisine: [],
         selected: '',
+        menus: {}
       };
     },
     created: function () {
@@ -52,6 +78,7 @@
           console.log("getting the restaurant info...", response);
           this.restaurant = response.data.result;
           this.cuisines = response.data.result.cuisines;
+          this.menus = response.data.result.menus;
         });
       },
       addRestaurant: function() {
