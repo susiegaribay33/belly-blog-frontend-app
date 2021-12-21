@@ -42,18 +42,8 @@
                 <button type="submit" class="btn btn-success" @click="addRestaurant">Add</button>
               </div>
             </section>
-
-            <!-- <h4>Add to MyRestaurants?</h4>
-            <br>
-            <p>Please select a status:</p>
-            <select v-model="selected">
-              <option value="been">I've been here!</option>
-              <option value="go">I'd like to go here!</option>
-              <option value="fav">This is my #1 favorite place!</option>
-            </select>
-            <br> -->
-            <!-- <button type="submit" class="btn btn-success" @click="addRestaurant">Add</button> -->
           </div>
+          
         </div>
       </div>
     </section>

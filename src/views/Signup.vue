@@ -1,6 +1,57 @@
 <template>
   <div class="signup">
-    <form v-on:submit.prevent="createUser()">
+    <section id="book-a-table" class="book-a-table">
+      <!-- <div class="php-email-form" data-aos="fade-up" data-aos-delay="100"> -->
+        <section id="about" class="about">
+          <div class="container" data-aos="fade-up">
+            <!-- <div class="row event-item"> -->
+              <!-- <div class="col-lg-6"> -->
+                <div class="row">
+                  <!-- <div class="col-lg-4 col-md-6 form-group"> -->
+
+                    <form v-on:submit.prevent="createUser()">
+                      <h1>Signup</h1>
+                      <ul>
+                        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+                      </ul>
+                      <div>
+                        <p>Name: <input type="text" v-model="newUserParams.name" /></p>
+                        <!-- <input type="text" v-model="newUserParams.name" /> -->
+                      </div> 
+                      <div>
+                        <p>Email: <input type="email" v-model="newUserParams.email" /></p>
+                        <!-- <input type="email" v-model="newUserParams.email" /> -->
+                      </div> 
+                      <div>
+                        <p>Password: <input type="password" v-model="newUserParams.password" /></p>
+                        <!-- <input type="password" v-model="newUserParams.password" /> -->
+                      </div>
+                      <div>
+                        <p>Password confirmation: <input type="password" v-model="newUserParams.password_confirmation" /></p>
+                        <!-- <input type="password" v-model="newUserParams.password_confirmation" /> -->
+                      </div>
+                      <!-- <div class="text-center"> -->
+                        <button type="submit">Submit</button>
+                      <!-- </div> -->
+                      <!-- <input type="submit" value="Submit" /> -->
+                    </form>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    
+                  <!-- </div> -->
+                </div>
+              <!-- </div>  -->
+            <!-- </div> -->
+          </div>
+        </section>
+      <!-- </div> -->
+    </section>
+    <!-- <form v-on:submit.prevent="createUser()">
       <h1>Signup</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
@@ -22,7 +73,7 @@
         <input type="password" v-model="newUserParams.password_confirmation" />
       </div>
       <input type="submit" value="Submit" />
-    </form>
+    </form> -->
   </div>
 </template>
 

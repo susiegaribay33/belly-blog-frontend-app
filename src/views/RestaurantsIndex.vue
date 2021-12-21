@@ -48,7 +48,7 @@
                   <p>{{ cuisine }}</p>
                 </div>
                 <br>
-                <h4>Contact</h4>
+                <h4>Contact Info</h4>
                 <p>{{ restaurant.hours }}</p>
                 <p>{{ restaurant.restaurant_phone }}</p>
                 <p>{{ restaurant.restaurant_website }}</p>

@@ -1,6 +1,43 @@
 <template>
   <div class="myrestaurants-index">
-    <h1>{{ message }}</h1>
+    <section id="why-us" class="why-us">
+      <div class="container" data-aos="fade-up">
+        <br>
+        <br>
+        <br>
+        <div class="section-title">
+          <h2>Time to eat</h2>
+          <p>My Restaurants</p>
+        </div>
+
+        <div v-for="restaurant in my_restaurants">
+          <div class="row">
+              <div class="box" data-aos="zoom-in" data-aos-delay="100">
+                <span>{{ restaurant.restaurant_name }}</span>
+                <h4>{{ restaurant.address }}</h4>
+                <h4>Price Range: {{ restaurant.price_range }}</h4>
+                <!-- <div v-for="cuisine in restaurant.cuisines">
+                  <p>{{ cuisine }}</p>
+                </div> -->
+                <br>
+                <h4>Contact Info</h4>
+                <p>Hours: {{ restaurant.hours }}</p>
+                <p>Phone Number: {{ restaurant.restaurant_phone }}</p>
+                <p>Website: {{ restaurant.restaurant_website }}</p>
+                <p><router-link v-bind:to="`/my_restaurants/${restaurant.id}`">More Details</router-link></p>
+              </div>
+          </div>
+          <br>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <h1>My Restaurants</h1>
     <div v-for="restaurant in my_restaurants">
       <h2>{{ restaurant.restaurant_name }}</h2>
@@ -12,10 +49,10 @@
       <!-- <div v-for="cuisine in restaurant.cuisines">
         <p>{{ cuisine }}</p>
       </div> -->
-      <p>Website: {{ restaurant.restaurant_website }}</p>    
+      <!-- <p>Website: {{ restaurant.restaurant_website }}</p>    
       <router-link v-bind:to="`/my_restaurants/${restaurant.id}`">View</router-link>
       <hr>
-    </div>
+    </div>  -->
   </div>
 </template>
 
