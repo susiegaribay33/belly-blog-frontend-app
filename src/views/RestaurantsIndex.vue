@@ -11,22 +11,8 @@
           <p>Browse Restaurants</p>
         </div>
       
-        <!-- <p><b>Search by Zipcode: </b><input type="text" v-model="zipParams.zipcode"/><button v-on:click="searchZip()">Search</button></p>
-        <br>
-        <p><b>Search by State (example: IL): </b><input type="text" v-model="stateParams.state"/><button v-on:click="searchState()">Search</button></p>
-        <br>
-        <p><b>Search by Restaurant Name: </b><input type="text" v-model="nameParams.name"/><button v-on:click="searchName()">Search</button></p>
-        <br> -->
 
-        <!-- ======= Book A Table Section ======= -->
         <section id="book-a-table" class="book-a-table">
-          <!-- <div class="container" data-aos="fade-up"> -->
-
-            <!-- <div class="section-title">
-              <h2>Reservation</h2>
-              <p>Book a Table</p>
-            </div> -->
-
             <div class="php-email-form" data-aos="fade-up" data-aos-delay="100">
 
               <div class="row">
@@ -49,10 +35,8 @@
               </div>
 
             </div>
-
-          <!-- </div> -->
         </section>
-        <!-- End Book A Table Section -->
+
 
         <div v-for="restaurant in restaurants">
           <div class="row">
@@ -73,59 +57,34 @@
           </div>
           <br>
         </div>
+        <div id="pagination">
+          <!-- <pagination v-if="cuisineParams.cuisine" :pagination="pagination" 
+            @prev="--cuisineParams.page; searchCuisine();"
+            @next="cuisineParams.page++; searchCuisine();">
+          </pagination> -->
 
+          <pagination v-if="zipParams.zipcode" :pagination="pagination" 
+            @prev="--zipParams.page; searchZip();"
+            @next="zipParams.page++; searchZip();">
+          </pagination>
+
+          <pagination v-else-if="stateParams.state" :pagination="pagination" 
+            @prev="--stateParams.page; searchState();"
+            @next="stateParams.page++; searchState();">
+          </pagination>
+
+          <pagination v-else-if="nameParams.name" :pagination="pagination" 
+            @prev="--nameParams.page; searchName();"
+            @next="nameParams.page++; searchName();">
+          </pagination>
+
+          <pagination v-else :pagination="pagination"  
+            @prev="--restaurantsData.page; indexRestaurants();"
+            @next="restaurantsData.page++; indexRestaurants();">
+          </pagination>
+        </div>
       </div>
     </section>
-    <!-- End Why Us Section -->
-
-    <!-- <h1>Browse All Restaurants</h1>
-    <br>
-    <p><b>Search by Zipcode: </b><input type="text" v-model="zipParams.zipcode"/><button v-on:click="searchZip()">Search</button></p>
-    <br>
-    <p><b>Search by State (example: IL): </b><input type="text" v-model="stateParams.state"/><button v-on:click="searchState()">Search</button></p>
-    <br>
-    <p><b>Search by Restaurant Name: </b><input type="text" v-model="nameParams.name"/><button v-on:click="searchName()">Search</button></p>
-    <br>
-    <div v-for="restaurant in restaurants">
-      <h2>{{ restaurant.restaurant_name }}</h2>
-      <p>{{ restaurant.address.formatted }}</p>
-      <p>{{ restaurant.restaurant_phone }}</p>
-      <p>{{ restaurant.hours }}</p>
-      <p>{{ restaurant.price_range }}</p>
-      <div v-for="cuisine in restaurant.cuisines">
-        <p>{{ cuisine }}</p>
-      </div>
-      <p>{{ restaurant.restaurant_website }}</p>
-      <router-link v-bind:to="`/restaurant/${restaurant.restaurant_id}`">View Info / Save</router-link>
-      <hr>  
-    </div> -->
-
-    <div id="pagination">
-      <pagination v-if="cuisineParams.cuisine" :pagination="pagination" 
-        @prev="--cuisineParams.page; searchCuisine();"
-        @next="cuisineParams.page++; searchCuisine();">
-      </pagination>
-
-      <pagination v-if="zipParams.zipcode" :pagination="pagination" 
-        @prev="--zipParams.page; searchZip();"
-        @next="zipParams.page++; searchZip();">
-      </pagination>
-
-      <pagination v-else-if="stateParams.state" :pagination="pagination" 
-        @prev="--stateParams.page; searchState();"
-        @next="stateParams.page++; searchState();">
-      </pagination>
-
-      <pagination v-else-if="nameParams.name" :pagination="pagination" 
-        @prev="--nameParams.page; searchName();"
-        @next="nameParams.page++; searchName();">
-      </pagination>
-
-      <pagination v-else :pagination="pagination"  
-        @prev="--restaurantsData.page; indexRestaurants();"
-        @next="restaurantsData.page++; indexRestaurants();">
-      </pagination>
-    </div> -->
 
   </div>
 </template>
@@ -189,14 +148,14 @@
           this.configPagination(response.data)
         })
       },
-      searchCuisine: function() {
-        axios.get("/restaurants_cuisine/" + this.cuisineParams.cuisine + "/" + this.cuisineParams.page).then((response) => {
-          console.log("searching this cuisine...", response);
-          this.restaurants = response.data.data;
-          this.cuisines = response.data.data.cuisines;
-          this.cuisinePagination(response.data)
-        })
-      },
+      // searchCuisine: function() {
+      //   axios.get("/restaurants_cuisine/" + this.cuisineParams.cuisine + "/" + this.cuisineParams.page).then((response) => {
+      //     console.log("searching this cuisine...", response);
+      //     this.restaurants = response.data.data;
+      //     this.cuisines = response.data.data.cuisines;
+      //     this.cuisinePagination(response.data)
+      //   })
+      // },
       searchZip: function() {
         axios.get("/restaurants_zip/" + this.zipParams.zipcode + "/" + this.zipParams.page).then((response) => {
           console.log("searching in this zipcode...", response);
