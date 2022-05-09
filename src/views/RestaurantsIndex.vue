@@ -52,6 +52,7 @@
                 <p>{{ restaurant.hours }}</p>
                 <p>{{ restaurant.restaurant_phone }}</p>
                 <p>{{ restaurant.restaurant_website }}</p>
+                 <br>
                 <p><router-link v-bind:to="`/restaurant/${restaurant.restaurant_id}`">View Info / Save</router-link></p>
               </div>
           </div>

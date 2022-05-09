@@ -20,7 +20,7 @@
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
             <li><a class="nav-link scrollto active" href="/">Home</a></li>
-            <li><a class="nav-link scrollto" href="/about">About</a></li>
+            <!-- <li><a class="nav-link scrollto" href="/about">About</a></li> -->
             <li><a class="nav-link scrollto" href="/restaurants">Find Restaurants</a></li>
             <li><a class="nav-link scrollto" href="/my_restaurants">My Restaurants</a></li>
             <li><a class="nav-link scrollto" href="/login">Login</a></li>

@@ -124,7 +124,7 @@
       return {
         message: "This is restaurants show",
         restaurant: {},
-        cuisine: [],
+        cuisines: [],
         selected: '',
         menus: {}
       };
@@ -151,7 +151,7 @@
           restaurant_website: this.restaurant.restaurant_website,
           hours: this.restaurant.hours,
           price_range: this.restaurant.price_range,
-          // cuisines: this.cuisines,
+          cuisines: this.restaurant.cuisines,
           address: this.restaurant.address.formatted
         })
         .then((response) => {

@@ -15,6 +15,7 @@
               <div class="box" data-aos="zoom-in" data-aos-delay="100">
                 <span>{{ restaurant.restaurant_name }}</span>
                 <h4>{{ restaurant.address }}</h4>
+                <p>Status: {{ restaurant.restaurant_status }}</p>
                 <h4>Price Range: {{ restaurant.price_range }}</h4>
                 <!-- <div v-for="cuisine in restaurant.cuisines">
                   <p>{{ cuisine }}</p>

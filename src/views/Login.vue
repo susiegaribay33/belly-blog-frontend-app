@@ -15,11 +15,11 @@
                         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
                       </ul>
                       <div>
-                        <label>Email:</label>
+                        <label>Email: </label>
                         <input type="email" v-model="newSessionParams.email" />
                       </div> 
                       <div>
-                        <label>Password:</label>
+                        <label>Password: </label>
                         <input type="password" v-model="newSessionParams.password" />
                       </div>
                       <!-- <div class="text-center"> -->
@@ -70,7 +70,7 @@
               "Bearer " + response.data.jwt;
             localStorage.setItem("jwt", response.data.jwt);
             localStorage.setItem("user_id", response.data.user_id)
-            this.$router.push("/my_restaurants");
+            this.$router.push("/");
           })
           .catch((error) => {
             console.log(error.response);

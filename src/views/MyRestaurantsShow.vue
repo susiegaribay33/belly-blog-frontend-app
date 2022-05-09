@@ -12,8 +12,17 @@
           <p class="fst-italic">
             {{ restaurant.address }}
           </p>
+          <p>Status: {{ restaurant.restaurant_status }}</p>
           <p>Price Range: {{ restaurant.price_range }}</p>
-          <p>Cuisines: {{ restaurant.cuisines }}</p>
+          <!-- <p>Cuisines: </p>
+          <div v-if="restaurant.cuisines == 'Not Available'">
+            <p>{{ restaurant.cuisines }}</p>
+          </div>
+          <div v-else>
+            <div v-for="cuisine in restaurant.cuisines">
+              <p>{{ cuisine }}</p>
+            </div>
+          </div> -->
           <br>
           <br>
           <h4>Contact</h4>
@@ -23,7 +32,7 @@
           <br>
           <br>
           <h4>~ My Thoughts ~</h4>
-          <p>What did I like most from this restaurant? :</p><p class="fst-italic">{{ restaurant.fav_menu_item }}</p>
+          <p>What food item did I like most from this restaurant? :</p><p class="fst-italic">{{ restaurant.fav_menu_item }}</p>
 
           <div v-if="restaurant.post">
             <section id="testimonials" class="testimonials section-bg">
